@@ -1,3 +1,3 @@
 export const App = () => {
-  return <h1>App</h1>;
+  return <div style={{ background: '#000000', height: 200 }}></div>;
 };
