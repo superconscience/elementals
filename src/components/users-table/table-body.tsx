@@ -1,6 +1,7 @@
 import { FC, useCallback, useRef } from 'react';
 import { User } from '../../types/user';
 import { TableRow } from './table-row';
+import { Loader } from './loader';
 export interface IProps {
   data: User[];
   loadMore: () => void;
@@ -47,19 +48,7 @@ export const TableBody: FC<IProps> = ({ data, loadMore, isLoading }) => {
           <TableRow key={JSON.stringify(user) + rank} user={user} rank={rank} />
         );
       })}
-      {isLoading && (
-        <div
-          style={{
-            height: '100px',
-            textAlign: 'center',
-            fontSize: '30px',
-            width: '100%',
-            maxWidth: '100%',
-          }}
-        >
-          {'Loading...'}
-        </div>
-      )}
+      {isLoading && <Loader />}
     </>
   );
 };
