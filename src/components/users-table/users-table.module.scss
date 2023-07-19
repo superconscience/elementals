@@ -1,0 +1,94 @@
+.fullWidth {
+  width: 100%;
+}
+
+.textViolet {
+  color: #a8a3ee;
+}
+
+.textBlue {
+  color: #63a0e6;
+}
+
+.blue {
+  background-color: #63a0e6;
+}
+
+.tableContainer {
+  padding: 0 5px;
+  @extend .fullWidth;
+  display: flex;
+  flex-direction: column;
+}
+
+.tableBody {
+  display: flex;
+  @extend .fullWidth;
+  flex-direction: column;
+}
+
+.tableRow {
+  margin-bottom: 1rem;
+  text-align: left;
+  display: flex;
+  @extend .fullWidth;
+
+  &:target-within {
+    .avatar {
+      border-color: green;
+      border-radius: 200px;
+    }
+  }
+}
+
+.rank {
+  flex-basis: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.rank,
+.avatar {
+  flex-shrink: 0;
+}
+
+.avatar {
+  padding: 2px;
+  border: solid 1px transparent;
+  border-radius: 200px;
+}
+
+.info {
+  margin-left: 1rem;
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #383838;
+  font-weight: 700;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.separator {
+  @extend .blue;
+  width: 3px;
+  height: 100%;
+}
