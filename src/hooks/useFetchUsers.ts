@@ -7,7 +7,7 @@ import { createRandomUser } from '../utils/createRandomUser';
 export const USERS_PER_LOAD = 50;
 export const FAKE_LOADING_TIME = 1500;
 
-export default function useFetchUsers() {
+export function useFetchUsers() {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState<User[]>([]);
 

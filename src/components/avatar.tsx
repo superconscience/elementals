@@ -6,7 +6,6 @@ export interface IProps {
 }
 
 export const Avatar: FC<IProps> = ({ color: colorNum }) => {
-  console.log(Color[colorNum]);
   const cssColor = Color[colorNum];
   return (
     <svg

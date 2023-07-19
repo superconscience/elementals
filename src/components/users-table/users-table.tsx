@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useFetchUsers from '../../hooks/useFetchUsers';
+import { useFetchUsers } from '../../hooks/useFetchUsers';
 import { TableBody } from './table-body';
 import styles from './users-table.module.scss';
 

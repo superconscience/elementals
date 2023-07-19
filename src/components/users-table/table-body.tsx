@@ -1,7 +1,9 @@
-import { FC, useCallback, useRef } from 'react';
+import { FC } from 'react';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { User } from '../../types/user';
-import { TableRow } from './table-row';
 import { Loader } from './loader';
+import { TableRow } from './table-row';
+
 export interface IProps {
   data: User[];
   loadMore: () => void;
@@ -9,25 +11,9 @@ export interface IProps {
 }
 
 export const TableBody: FC<IProps> = ({ data, loadMore, isLoading }) => {
-  const observer = useRef<IntersectionObserver>();
-  const lastUserElementRef = useCallback(
-    (node: Element | null) => {
-      if (isLoading) {
-        return;
-      }
-      if (observer.current) {
-        observer.current.disconnect();
-      }
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          loadMore();
-        }
-      });
-      if (node) {
-        observer.current.observe(node);
-      }
-    },
-    [loadMore, isLoading]
+  const { ref: lastUserElementRef } = useIntersectionObserver(
+    loadMore,
+    isLoading
   );
 
   return (

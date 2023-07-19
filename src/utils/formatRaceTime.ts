@@ -8,7 +8,6 @@ export function formatRaceTime(time: number): string {
   minute += hour * 60;
 
   temp += (minute < 10 ? '0' : '') + minute;
-  console.log(temp);
   temp += (second < 10 ? ':0' : ':') + second;
   temp +=
     (millisecond < 10 ? (millisecond < 100 ? '.00' : '.0') : '.') +
