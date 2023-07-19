@@ -14,6 +14,10 @@
   background-color: #63a0e6;
 }
 
+.borderViolet {
+  border-color: #a8a3ee;
+}
+
 .tableContainer {
   padding: 0 5px;
   @extend .fullWidth;
@@ -32,13 +36,11 @@
   text-align: left;
   display: flex;
   @extend .fullWidth;
+}
 
-  &:target-within {
-    .avatar {
-      border-color: green;
-      border-radius: 200px;
-    }
-  }
+.clickImitatorLabel {
+  display: flex;
+  width: 100%;
 }
 
 .rank {
@@ -52,14 +54,15 @@
 }
 
 .rank,
-.avatar {
+.avatarContainer {
   flex-shrink: 0;
 }
 
-.avatar {
+.avatarContainer {
+  position: relative;
   padding: 2px;
-  border: solid 1px transparent;
-  border-radius: 200px;
+  border: solid 2px transparent;
+  border-radius: 100vh;
 }
 
 .info {
@@ -91,4 +94,18 @@
   @extend .blue;
   width: 3px;
   height: 100%;
+}
+
+.clickImitatorInput:checked + .clickImitatorLabel {
+  .avatarContainer {
+    @extend .borderViolet;
+  }
+  .rank {
+    @extend .textViolet;
+  }
+}
+
+.avatarBigSideHelper {
+  width: var(--users-table-avatar-big-side);
+  height: var(--users-table-avatar-big-side);
 }
