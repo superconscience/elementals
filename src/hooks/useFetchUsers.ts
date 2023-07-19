@@ -3,9 +3,7 @@ import { User } from '../types/user';
 import { sleep } from '../utils/sleep';
 import { faker } from '@faker-js/faker';
 import { createRandomUser } from '../utils/createRandomUser';
-
-export const USERS_PER_LOAD = 50;
-export const FAKE_LOADING_TIME = 1500;
+import { FAKE_LOADING_TIME, USERS_PER_LOAD } from '../constants';
 
 export function useFetchUsers() {
   const [isLoading, setIsLoading] = useState(true);
